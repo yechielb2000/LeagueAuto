@@ -26,12 +26,12 @@ _You can make this code `exe` by typing `win` then search for `Compile Script to
     
     __If you click :__
 
-    __1__ ▶ _it starts for you a blind game_
+    __f1__ ▶ _it starts for you a blind game_
 
-    __2__ ▶ _it starts for you a normal game (mid and top)_
+    __f2__ ▶ _it starts for you a normal game (mid and top)_
 
-    __3__ ▶ _it starts for you a soloQ game (mid and top)_
+    __f3__ ▶ _it starts for you a soloQ game (mid and top)_
 
-    __4__ ▶ _it starts for you a flex game (mid and top)_
+    __f4__ ▶ _it starts for you a flex game (mid and top)_
 
-    __5__ ▶ _it starts for you an aram game_
+    __f5__ ▶ _it starts for you an aram game_

@@ -2,21 +2,19 @@
 #include <WinAPI.au3>
 
 HotKeySet("{Esc}", exitApp)
-HotKeySet("{1}", blindGame)
-HotKeySet("{2}", normalGame)
-HotKeySet("{3}", soloGame)
-HotKeySet("{4}", flexGame)
-HotKeySet("{5}", aramGame)
+HotKeySet("{f1}", blindGame)
+HotKeySet("{f2}", normalGame)
+HotKeySet("{f3}", soloGame)
+HotKeySet("{f4}", flexGame)
+HotKeySet("{f5}", aramGame)
 
 Global $x=0
 Global $y=0
-Global $hwnd = WinGetHandle($LOLWinClass)
 Global Const $LOLWinClass = "[CLASS:RCLIENT]"
-
-; please add this info
-Global Const $LOLPath = "";Your path to RiotClientServices.exe
-Global Const $name = "" ;Your name 
-Global Const $password = "" ;Your password 
+Global $hwnd = WinGetHandle($LOLWinClass)
+Global Const $LOLPath = "D:\Games\LOL\Riot Games\Riot Client\RiotClientServices.exe"
+Global Const $name = "yechielb1235"
+Global Const $password = "yechielb123"
 
 autoLeague()
 Func autoLeague()
