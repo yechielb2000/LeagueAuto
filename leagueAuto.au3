@@ -10,8 +10,8 @@ HotKeySet("{5}", aramGame)
 
 Global $x=0
 Global $y=0
-Global $hwnd = WinGetHandle($LOLWinClass)
 Global Const $LOLWinClass = "[CLASS:RCLIENT]"
+Global $hwnd = WinGetHandle($LOLWinClass)
 
 ; please add this info
 Global Const $LOLPath = "";Your path to RiotClientServices.exe
