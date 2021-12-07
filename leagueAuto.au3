@@ -10,9 +10,11 @@ HotKeySet("{5}", aramGame)
 
 Global $x=0
 Global $y=0
-Global Const $LOLPath = "D:\Games\LOL\Riot Games\Riot Client\RiotClientServices.exe";Your path to RiotClientServices.exe
-Global Const $LOLWinClass = "[CLASS:RCLIENT]"
 Global $hwnd = WinGetHandle($LOLWinClass)
+Global Const $LOLWinClass = "[CLASS:RCLIENT]"
+
+; please add this info
+Global Const $LOLPath = "";Your path to RiotClientServices.exe
 Global Const $name = "" ;Your name 
 Global Const $password = "" ;Your password 
 
