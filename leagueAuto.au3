@@ -12,9 +12,11 @@ Global $x=0
 Global $y=0
 Global Const $LOLWinClass = "[CLASS:RCLIENT]"
 Global $hwnd = WinGetHandle($LOLWinClass)
-Global Const $LOLPath = "D:\Games\LOL\Riot Games\Riot Client\RiotClientServices.exe"
-Global Const $name = "yechielb1235"
-Global Const $password = "yechielb123"
+
+; please add this info
+Global Const $LOLPath = "";Your path to RiotClientServices.exe
+Global Const $name = "" ;Your name 
+Global Const $password = "" ;Your password 
 
 autoLeague()
 Func autoLeague()
