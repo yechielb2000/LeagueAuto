@@ -2,19 +2,24 @@
 #include <WinAPI.au3>
 
 HotKeySet("{Esc}", exitApp)
-HotKeySet("{f1}", normalGame)
-HotKeySet("{f2}", soloGame)
+HotKeySet("{1}", blindGame)
+HotKeySet("{2}", normalGame)
+HotKeySet("{3}", soloGame)
+HotKeySet("{4}", flexGame)
+HotKeySet("{5}", aramGame)
 
 Global $x=0
 Global $y=0
-Global Const $LOLPath = "D:\Games\LOL\Riot Games\Riot Client\RiotClientServices.exe"
+Global Const $LOLPath = "D:\Games\LOL\Riot Games\Riot Client\RiotClientServices.exe";Your path to RiotClientServices.exe
 Global Const $LOLWinClass = "[CLASS:RCLIENT]"
 Global $hwnd = WinGetHandle($LOLWinClass)
+Global Const $name = "" ;Your name 
+Global Const $password = "" ;Your password 
 
 autoLeague()
 Func autoLeague()
-    ;~ runApp()
-    ;~ RunLogin()
+    runApp()
+    RunLogin()
     While True
     WEnd
 EndFunc
@@ -27,9 +32,9 @@ EndFunc
 
 Func runLogin()
     Sleep(3000)
-    Send("yechielb1235")
+    Send($name)
     Send("{TAB}")
-    Send("yechielb123")
+    Send($password)
     Send("{TAB 5}")
     Send("{ENTER}") 
     WinWait($LOLWinClass)
@@ -39,33 +44,45 @@ Func runLogin()
     MouseClick("Left", 214, 808, 1, 0)
 EndFunc
 
+Func blindGame()
+    startGame(100, 520, False)
+EndFunc
+
 Func normalGame()
-    WinMove($LOLWinClass, "", 0, 0)
-    Sleep(500)
-    click(120, 40)
-    Sleep(1000)
-    click(100, 540)
-    click(540, 690)
-    Sleep(1000)
-    ;~ primary pick
-    click(485, 479)
-    pickMid()
-    Sleep(1000)
-    ;~ secondary pick
-    click(576, 478)
-    pickTop()
-    ;~ start
-    Sleep(1000)
-    click(532, 685)
-    ;~ call accept
-    acceptQueue()
+   startGame(100, 550, True)
 EndFunc
 
 Func soloGame()
+   startGame(100, 570, True)
+EndFunc
+
+Func flexGame()
+    startGame(100, 610, True)
+EndFunc
+
+Func aramGame()
+    startGame(374, 250, False)
+EndFunc 
+
+Func startGame($typeX, $typeY, $picks)
     WinMove($LOLWinClass, "", 0, 0)
-    Sleep(1000)
+    checkStatus()
+    Sleep(500)
     click(120, 40)
     Sleep(1000)
+    click($typeX, $typeY)
+    click(540, 690)
+    Sleep(1000)
+    If $picks = True Then
+        click(485, 479)
+        pickMid()
+        Sleep(1000)
+        click(576, 478)
+        pickTop()
+    EndIf    
+    Sleep(1000)
+    click(532, 685)
+    acceptQueue()
 EndFunc
 
 Func pickMid()
@@ -82,13 +99,28 @@ Func acceptQueue()
 While True 
     $accept = _ImageSearch("accept.png", 0, $x, $y, 10)
     If $accept = True  Then
-        click($x-100, $y-110)     
+        click($x-100, $y-110)    
+        $accept = False 
     EndIf 
 WEnd
 EndFunc         
 
 Func click($x, $y)
     MouseClick("Left", $x, $y, 1, 2)
+EndFunc
+
+Func checkStatus()
+    $changeMode = _ImageSearch("changeMode.png", 0, $x, $y, 10)
+    $inQueue = _ImageSearch("inQueue.png", 0, $x, $y, 10)
+    if $changeMode = True Then
+        click(440, 686)
+        Sleep(2000)
+    ElseIf $inQueue = True Then
+        click(440, 686)
+        Sleep(1000)
+        click(440, 686)
+        Sleep(2000)
+    EndIf    
 EndFunc
 
 Func exitApp()
