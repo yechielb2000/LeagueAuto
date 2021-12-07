@@ -23,6 +23,7 @@ _You can make this code `exe` by typing `win` then search for `Compile Script to
 - #### League client
 
     _To start a game you don't have to do anything except clicking one button._
+    
     __If you click :__
 
     __1__ ▶ _it starts for you a blind game_
@@ -32,5 +33,5 @@ _You can make this code `exe` by typing `win` then search for `Compile Script to
     __3__ ▶ _it starts for you a soloQ game (mid and top)_
 
     __4__ ▶ _it starts for you a flex game (mid and top)_
-    
+
     __5__ ▶ _it starts for you an aram game_
